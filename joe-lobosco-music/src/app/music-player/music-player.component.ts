@@ -17,7 +17,6 @@ export class MusicPlayerComponent implements OnInit {
   // pieOhMy = new Audio()
   public ws: WaveSurfer;
   public tracklist = tracklist.tracks
-  public inProgress = false;
   public activeTrack = "";
   public isPlaying = false;
 
@@ -41,25 +40,52 @@ export class MusicPlayerComponent implements OnInit {
     this.activeTrack = this.tracklist[0].ref
   }
 
-  playHandler(ref){
+  playHandler(ref, index){
     if(ref == this.activeTrack){
+      this.buttonSwitch(index, "pause")
       this.ws.play()
     } else {
-      this.findTrack(ref).then(res => {
-        this.inProgress = false
+      this.findTrack(ref, index).then(res => {
+        this.buttonSwitch(index, 'pause')
         this.ws.play()
       })
     }
   }
-  findTrack(ref){
+
+  pauseHandler(index){
+    this.ws.pause()
+    this.buttonSwitch(index, 'play')
+  }
+
+  findTrack(ref, index){
     return new Promise (resolve => {
-      this.inProgress = true;
+      this.buttonSwitch(index, "spin")
       this.ws.load(ref)
       this.activeTrack = ref
       this.ws.on('ready', function(){
         resolve()
       })
     })
+  }
+
+  buttonSwitch(index, action){
+    switch (action){
+      case 'spin':
+        document.getElementById('play-' + index).style.display = 'none'
+        document.getElementById('pause-' + index).style.display = 'none'
+        document.getElementById('spinner-' + index).style.display = 'inline-block'
+        break
+      case 'pause':
+        document.getElementById('play-' + index).style.display = 'none'
+        document.getElementById('pause-' + index).style.display = 'inline-block'
+        document.getElementById('spinner-' + index).style.display = 'none'
+        break
+      case 'play':
+        document.getElementById('play-' + index).style.display = 'inline-block'
+        document.getElementById('pause-' + index).style.display = 'none'
+        document.getElementById('spinner-' + index).style.display = 'none'
+        break
+    }
   }
 
 }

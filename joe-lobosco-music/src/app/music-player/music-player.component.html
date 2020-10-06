@@ -7,26 +7,23 @@
         <mat-card-content>
             <table style="width: 100%">
                 <colgroup>
-                    <col span="1" style="width:70%">
-                    <col span="1" style="width:15%">
+                    <col span="1" style="width:75%">
                     <col span="1" style="width:15%">
                 </colgroup>
-                <ng-container *ngFor="let track of tracklist">
                     <tbody>
-                        <tr>
-                            <td>{{track.title}}</td>
-                            <td>
-                                <button *ngIf="inProgress == false && isPlaying == false" id="play" mat-stroked-button (click)="playHandler(track.ref)"><fa-icon [icon]="faPlay"></fa-icon></button>
-                                <button mat-stroked-button disabled *ngIf="inProgress == true">
-                                    <fa-icon id="spinner" [icon]="faCircleNotch" [spin]="true" transform="grow-9"></fa-icon>
-                                </button>
-                            </td>
-                            <td>
-                                <button *ngIf="inProgress == false" id="pause" mat-stroked-button (click)="ws.pause()"><fa-icon [icon]="faPause"></fa-icon></button>
-                            </td>
-                        </tr>
+                        <ng-container *ngFor="let track of tracklist; let i = index">
+                            <tr>
+                                <td>{{track.title}}</td>
+                                <td>
+                                    <button class="play-btns" id="play-{{i}}" mat-stroked-button (click)="playHandler(track.ref, i)"><fa-icon [icon]="faPlay"></fa-icon></button>
+                                    <button class="spinner-btns" mat-stroked-button disabled id="spinner-{{i}}">
+                                        <fa-icon [icon]="faCircleNotch" [spin]="true" transform="grow-9"></fa-icon>
+                                    </button>
+                                    <button class="pause-btns" id="pause-{{i}}" mat-stroked-button (click)="pauseHandler(i)"><fa-icon [icon]="faPause"></fa-icon></button>
+                                </td>
+                            </tr>
+                        </ng-container>
                     </tbody>
-                </ng-container>
             </table>
         </mat-card-content>
     </mat-card>

@@ -7,6 +7,9 @@
 #waveform{
 
 }
-#spinner{
-    color: white
+.pause-btns{
+    display: none;
+}
+.spinner-btns{
+    display: none;
 }

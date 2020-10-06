@@ -1,8 +1,34 @@
 <div id="main-content">
-    <button id="play" (click)="ws.play()">Play</button>
-    <button id="pause" (click)="ws.pause()">Pause</button>
     <div id="spacer">
-        <div id="waveform"></div>
+        <div  id="waveform"></div>
     </div>
+    <mat-card>
+        <!-- <mat-card-title>Playlist</mat-card-title> -->
+        <mat-card-content>
+            <table style="width: 100%">
+                <colgroup>
+                    <col span="1" style="width:70%">
+                    <col span="1" style="width:15%">
+                    <col span="1" style="width:15%">
+                </colgroup>
+                <ng-container *ngFor="let track of tracklist">
+                    <tbody>
+                        <tr>
+                            <td>{{track.title}}</td>
+                            <td>
+                                <button *ngIf="inProgress == false && isPlaying == false" id="play" mat-stroked-button (click)="playHandler(track.ref)"><fa-icon [icon]="faPlay"></fa-icon></button>
+                                <button mat-stroked-button disabled *ngIf="inProgress == true">
+                                    <fa-icon id="spinner" [icon]="faCircleNotch" [spin]="true" transform="grow-9"></fa-icon>
+                                </button>
+                            </td>
+                            <td>
+                                <button *ngIf="inProgress == false" id="pause" mat-stroked-button (click)="ws.pause()"><fa-icon [icon]="faPause"></fa-icon></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </ng-container>
+            </table>
+        </mat-card-content>
+    </mat-card>
 </div>
 

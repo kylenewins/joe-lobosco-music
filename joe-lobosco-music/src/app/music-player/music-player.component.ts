@@ -41,6 +41,10 @@ export class MusicPlayerComponent implements OnInit {
   }
 
   playHandler(ref, index){
+    var elems = document.getElementsByClassName('play-btns')
+    for(var i = 0; i < elems.length; i ++){
+      this.buttonSwitch(i, 'play')
+    }
     if(ref == this.activeTrack){
       this.buttonSwitch(index, "pause")
       this.ws.play()

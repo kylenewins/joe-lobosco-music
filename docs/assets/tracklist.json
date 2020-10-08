@@ -2,11 +2,11 @@
     "tracks": [
         {
             "title": "Pie Oh My",
-            "ref": "/joe-lobosco-music/assets/music/Pie-Oh-My.mp3"
+            "ref": "../../assets/music/Pie-Oh-My.mp3"
         },
         {
             "title": "Woodland",
-            "ref": "/joe-lobosco-music/assets/music/Woodland.mp3"
+            "ref": "../../assets/music/Woodland.mp3"
         }
     ]
 }

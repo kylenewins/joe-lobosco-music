@@ -1,7 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import WaveSurfer from 'wavesurfer.js'
 import {faPlay, faCircleNotch, faPause} from '@fortawesome/free-solid-svg-icons'
-import { trigger, state, style, transition, animate } from '@angular/animations'; 
 
 //@ts-ignore
 import tracklist from "../../assets/tracklist.json"
@@ -9,15 +8,7 @@ import tracklist from "../../assets/tracklist.json"
 @Component({
   selector: 'app-music-player',
   templateUrl: './music-player.component.html',
-  styleUrls: ['./music-player.component.css'],
-  animations: [
-    trigger('fadeIn', [
-      transition('void => *', [
-        style({opacity: 0}),
-        animate(2000, style({opacity:1}))
-    ])    
-  ]),
-  ]
+  styleUrls: ['./music-player.component.css']
 })
 export class MusicPlayerComponent implements OnInit {
 

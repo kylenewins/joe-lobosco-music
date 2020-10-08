@@ -36,9 +36,8 @@ export class MusicPlayerComponent implements OnInit {
       // scrollParent: true,
       barWidth: 5
     })
-    console.log(this.tracklist)
-    // this.ws.load(this.tracklist[0].ref)
-    // this.activeTrack = this.tracklist[0].ref
+    this.ws.load(this.tracklist[0].ref)
+    this.activeTrack = this.tracklist[0].ref
   }
 
   playHandler(ref, index){

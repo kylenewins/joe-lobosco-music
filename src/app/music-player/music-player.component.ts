@@ -4,7 +4,7 @@ import {faPlay, faCircleNotch, faPause} from '@fortawesome/free-solid-svg-icons'
 
 
 //@ts-ignore
-import tracklist from "../../assets/tracklist.json"
+// import tracklist from "../../assets/tracklist.json"
 
 @Component({
   selector: 'app-music-player',
@@ -16,7 +16,7 @@ export class MusicPlayerComponent implements OnInit {
   constructor() { }
   // pieOhMy = new Audio()
   public ws: WaveSurfer;
-  public tracklist = tracklist.tracks
+  // public tracklist = tracklist.tracks
   public activeTrack = "";
   public isPlaying = false;
 

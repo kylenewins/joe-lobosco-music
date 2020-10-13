@@ -1,6 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import WaveSurfer from 'wavesurfer.js'
-import {faPlay, faCircleNotch, faPause} from '@fortawesome/free-solid-svg-icons'
+import {faPlay, faCircleNotch, faPause, faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import {fadeIn} from '../animations'
 
 //@ts-ignore
 import tracklist from "../../assets/tracklist.json"
@@ -8,7 +9,8 @@ import tracklist from "../../assets/tracklist.json"
 @Component({
   selector: 'app-music-player',
   templateUrl: './music-player.component.html',
-  styleUrls: ['./music-player.component.css']
+  styleUrls: ['./music-player.component.css', './hover.css'],
+  animations:[fadeIn]
 })
 export class MusicPlayerComponent implements OnInit {
 
@@ -22,6 +24,7 @@ export class MusicPlayerComponent implements OnInit {
   faPlay = faPlay
   faCircleNotch = faCircleNotch
   faPause = faPause
+  faEnvelope = faEnvelope
 
   ngOnInit(): void {
     this.waveSurferInit()

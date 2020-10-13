@@ -9,13 +9,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatCardModule} from '@angular/material/card'
 import {MatButtonModule} from '@angular/material/button'
+import {MatGridListModule} from '@angular/material/grid-list'
 
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { ContactComponent } from './contact/contact.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    MusicPlayerComponent
+    MusicPlayerComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
+    MatGridListModule,
     FontAwesomeModule
   ],
   providers: [],

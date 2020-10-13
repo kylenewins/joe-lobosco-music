@@ -1,4 +1,4 @@
-<div id="main-content" >
+<div id="main-content" @fadeIn>
     <div id="spacer">
         <div  id="waveform"></div>
     </div>
@@ -15,7 +15,7 @@
                             <tr>
                                 <td>{{track.title}}</td>
                                 <td>
-                                    <button class="play-btns" id="play-{{i}}" mat-stroked-button (click)="playHandler(track.ref, i)"><fa-icon [icon]="faPlay"></fa-icon></button>
+                                    <button class="play-btns hvr-sweep-to-right" id="play-{{i}}" mat-stroked-button (click)="playHandler(track.ref, i)"><fa-icon [icon]="faPlay"></fa-icon></button>
                                     <button class="spinner-btns" mat-stroked-button disabled id="spinner-{{i}}">
                                         <fa-icon [icon]="faCircleNotch" [spin]="true" transform="grow-9"></fa-icon>
                                     </button>
@@ -27,5 +27,9 @@
             </table>
         </mat-card-content>
     </mat-card>
+    <button mat-stroked-button routerLink="/contact" class="hvr-wobble-vertical button" id="contact-btn">
+        Contact <fa-icon [icon]='faEnvelope'></fa-icon>
+    </button>
 </div>
+
 
